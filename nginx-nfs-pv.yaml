@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nginx-nfs-pv-html
+  labels:
+    name: nginx-nfs-pv-html
+spec:
+  storageClassName: nfs-server
+  accessModes:
+    - ReadOnlyMany
+  capacity:
+    storage: 100Mi
+  nfs:
+    path: /nfsshare
+    server: 192.168.38.179
